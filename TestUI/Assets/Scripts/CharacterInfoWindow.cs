@@ -6,6 +6,7 @@ namespace UI.CharacterWindow
 {
     public class CharacterInfoWindow : MonoBehaviour
     {
+        [SerializeField] private DataCharacterView dataView;
         [SerializeField] private CharacterButton characterButtonPrefab;
         [SerializeField] private GameObject parentCharacterButtons;
 
@@ -34,7 +35,7 @@ namespace UI.CharacterWindow
 
         public void OnClickCharacterButton(int idButton)
         {
-
+            dataView.ShowDataCharacter(dataCharacters[idButton]);
         }
     }
 }

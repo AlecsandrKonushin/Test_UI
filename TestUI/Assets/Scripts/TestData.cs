@@ -58,9 +58,9 @@ namespace Test
 		public int PanicResist { get; set; }
 		public int BonusPanicResist { get; set; }
 
-		public DataCharacter(int isCharacter)
+		public DataCharacter(int idCharacter)
 		{
-			NameCharacter = "Character" + isCharacter;
+			NameCharacter = "Character" + idCharacter;
 
 			Health = Random.Range(5, 10);
 			MaxHealth = Random.Range(10, 15);
