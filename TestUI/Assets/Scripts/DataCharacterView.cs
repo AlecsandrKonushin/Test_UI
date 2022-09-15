@@ -3,11 +3,14 @@ using Test;
 using TMPro;
 using UnityEngine.UI;
 using NaughtyAttributes;
+using UniRx;
 
 namespace UI.CharacterWindow
 {
     public class DataCharacterView : MonoBehaviour
     {
+        private CompositeDisposable disposable = new CompositeDisposable();
+
         [BoxGroup("Health Parameters")]
         [SerializeField] private TextMeshProUGUI healthText;
         [BoxGroup("Health Parameters")]
@@ -27,7 +30,12 @@ namespace UI.CharacterWindow
 
         public void ShowDataCharacter(DataCharacter data)
         {
+            disposable.Clear();
 
+            data.Health.Subscribe(_ =>
+            {
+                healthText.text = data.Health.Value.ToString();
+            }).AddTo(disposable);
         }
     }
 }

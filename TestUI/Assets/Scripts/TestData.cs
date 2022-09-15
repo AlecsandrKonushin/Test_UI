@@ -1,84 +1,85 @@
 using System.Collections.Generic;
+using UniRx;
 using UnityEngine;
 
 namespace Test
 {
-	public static class TestData
-	{
-		public static List<DataCharacter> Characters { get; private set; }
+    public static class TestData
+    {
+        public static List<DataCharacter> Characters { get; private set; }
 
-		static TestData()
-		{
-			Characters = new List<DataCharacter>();
+        static TestData()
+        {
+            Characters = new List<DataCharacter>();
 
-			for (int i = 0; i < 10; i++)
-			{
-				Characters.Add(new DataCharacter(i + 1));
-			}
-		}
-	}
+            for (int i = 0; i < 10; i++)
+            {
+                Characters.Add(new DataCharacter(i));
+            }
+        }
+    }
 
-	public class DataCharacter
-	{
-		public string NameCharacter { get; set; }
+    public class DataCharacter
+    {
+        public ReactiveProperty<string> NameCharacter { get; set; }
 
-		public int Health { get; set; }
-		public int MaxHealth { get; set; }
-		public int BonusHealth { get; set; }
+        public ReactiveProperty<int> Health { get; set; }
+        public ReactiveProperty<int> MaxHealth { get; set; }
+        public ReactiveProperty<int> BonusHealth { get; set; }
 
-		//Header
-		public int MovementPoints { get; set; }
-		public int BonusMovementPoints { get; set; }
-		public int Initiative { get; set; }
-		public int BonusInitiative { get; set; }
+        //Header
+        public ReactiveProperty<int> MovementPoints { get; set; }
+        public ReactiveProperty<int> BonusMovementPoints { get; set; }
+        public ReactiveProperty<int> Initiative { get; set; }
+        public ReactiveProperty<int> BonusInitiative { get; set; }
 
-		//Group Accuracy
-		public int AccuracyStrength { get; set; }
-		public int BonusAccuracyStrength { get; set; }
-		public int AccuracyDexterity { get; set; }
-		public int BonusAccuracyDexterity { get; set; }
-		public int AccuracyMagic { get; set; }
-		public int BonusAccuracyMagic { get; set; }
+        //Group Accuracy
+        public ReactiveProperty<int> AccuracyStrength { get; set; }
+        public ReactiveProperty<int> BonusAccuracyStrength { get; set; }
+        public ReactiveProperty<int> AccuracyDexterity { get; set; }
+        public ReactiveProperty<int> BonusAccuracyDexterity { get; set; }
+        public ReactiveProperty<int> AccuracyMagic { get; set; }
+        public ReactiveProperty<int> BonusAccuracyMagic { get; set; }
 
-		//Group Damage
-		public int DamageStrength { get; set; }
-		public int BonusDamageStrength { get; set; }
-		public int DamageDexterity { get; set; }
-		public int BonusDamageDexterity { get; set; }
-		public int DamageMagic { get; set; }
-		public int BonusDamageMagic { get; set; }
+        //Group Damage
+        public ReactiveProperty<int> DamageStrength { get; set; }
+        public ReactiveProperty<int> BonusDamageStrength { get; set; }
+        public ReactiveProperty<int> DamageDexterity { get; set; }
+        public ReactiveProperty<int> BonusDamageDexterity { get; set; }
+        public ReactiveProperty<int> DamageMagic { get; set; }
+        public ReactiveProperty<int> BonusDamageMagic { get; set; }
 
-		//No group
-		public int CritChance { get; set; }
-		public int BonusCritChance { get; set; }
-		public int Sprint { get; set; }
-		public int BonusSprint { get; set; }
-		public int ExpBonus { get; set; }
-		public int BonusExpBonus { get; set; }
-		public int PanicResist { get; set; }
-		public int BonusPanicResist { get; set; }
+        //No group
+        public ReactiveProperty<int> CritChance { get; set; }
+        public ReactiveProperty<int> BonusCritChance { get; set; }
+        public ReactiveProperty<int> Sprint { get; set; }
+        public ReactiveProperty<int> BonusSprint { get; set; }
+        public ReactiveProperty<int> ExpBonus { get; set; }
+        public ReactiveProperty<int> BonusExpBonus { get; set; }
+        public ReactiveProperty<int> PanicResist { get; set; }
+        public ReactiveProperty<int> BonusPanicResist { get; set; }
 
-		public DataCharacter(int idCharacter)
-		{
-			NameCharacter = $"Character\n{idCharacter}";
+        public DataCharacter(int idCharacter)
+        {
+            NameCharacter = new ReactiveProperty<string>($"{idCharacter}");
 
-			Health = Random.Range(5, 10);
-			MaxHealth = Random.Range(10, 15);
+            Health = new ReactiveProperty<int>(Random.Range(5, 10));
+            MaxHealth = new ReactiveProperty<int>(Random.Range(10, 15));
 
-			MovementPoints = Random.Range(5, 10);
-			Initiative = Random.Range(0, 10);
+            MovementPoints = new ReactiveProperty<int>(Random.Range(5, 10));
+            Initiative = new ReactiveProperty<int>(Random.Range(0, 10));
 
-			AccuracyStrength = Random.Range(0, 100);
-			AccuracyDexterity = Random.Range(0, 100);
-			AccuracyMagic = Random.Range(0, 100);
+            AccuracyStrength = new ReactiveProperty<int>(Random.Range(0, 100));
+            AccuracyDexterity = new ReactiveProperty<int>(Random.Range(0, 100));
+            AccuracyMagic = new ReactiveProperty<int>(Random.Range(0, 100));
 
-			DamageStrength = Random.Range(0, 100);
-			DamageDexterity = Random.Range(0, 100);
-			DamageMagic = Random.Range(0, 100);
-			CritChance = Random.Range(0, 25);
-			Sprint = Random.Range(0, 100);
-			ExpBonus = Random.Range(0, 50);
-			PanicResist = Random.Range(0, 5);
-		}
-	}
+            DamageStrength = new ReactiveProperty<int>(Random.Range(0, 100));
+            DamageDexterity = new ReactiveProperty<int>(Random.Range(0, 100));
+            DamageMagic = new ReactiveProperty<int>(Random.Range(0, 100));
+            CritChance = new ReactiveProperty<int>(Random.Range(0, 25));
+            Sprint = new ReactiveProperty<int>(Random.Range(0, 100));
+            ExpBonus = new ReactiveProperty<int>(Random.Range(0, 50));
+            PanicResist = new ReactiveProperty<int>(Random.Range(0, 5));
+        }
+    }
 }

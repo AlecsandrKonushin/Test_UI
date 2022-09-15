@@ -12,21 +12,20 @@ namespace UI.CharacterWindow
         private int idButton;
         private TextMeshProUGUI characterNameText;
 
-        public void Initialize()
-        {
-            if (TryGetComponent(out CharactersInfoWindow window))
-            {
-                infoWindow = window;
+        private bool isActive;
+        private Button button;
+        private Color myColor;
 
-                GetComponent<Button>().onClick.AddListener(OnClickButton);
-            }
-            else
-            {
-                Debug.Log($"<color=red>Not found CharactersInfoWindow in parent!</color>");
-            }
+        public int GetIdButton { get => idButton; }
+
+        public void Initialize(CharactersInfoWindow infoWindow)
+        {
+            this.infoWindow = infoWindow;
+            button = GetComponent<Button>();
+            button.onClick.AddListener(OnClickButton);
 
             characterNameText = GetComponentInChildren<TextMeshProUGUI>();
-            GetComponent<Button>().image.color = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f));
+            myColor = button.image.color = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f), 0.3f);
         }
 
         public void SetInfo(int id, string characterName)
@@ -35,11 +34,29 @@ namespace UI.CharacterWindow
             characterNameText.text = characterName;
         }
 
+        public void DeactivateButton()
+        {
+            if (isActive)
+            {
+                isActive = false;
+
+                Color newColor = myColor;
+                newColor.a = 0.3f;
+                button.image.color = newColor;
+            }
+        }
+
         private void OnClickButton()
         {
-            if (infoWindow)
+            if (infoWindow && !isActive)
             {
-                infoWindow.OnClickCharacterButton(idButton);
+                isActive = true;
+
+                Color newColor = myColor;
+                newColor.a = 1;
+                button.image.color = newColor;
+
+                infoWindow.OnClickCharacterButton(this);
             }
         }
 

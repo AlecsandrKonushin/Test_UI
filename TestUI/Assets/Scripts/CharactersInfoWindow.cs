@@ -13,6 +13,9 @@ namespace UI.CharacterWindow
         private List<DataCharacter> dataCharacters;
         private List<CharacterButton> characterButtons;
 
+        private DataCharacter currentData;
+        private CharacterButton currentButton;
+
         private void Start()
         {
             characterButtons = new List<CharacterButton>();
@@ -51,15 +54,27 @@ namespace UI.CharacterWindow
 
                     CharacterButton button = Instantiate(characterButtonPrefab, parent.transform);
 
-                    button.Initialize();
-                    button.SetInfo(i, dataCharacters[i].NameCharacter);
+                    button.Initialize(this);
+                    button.SetInfo(i, dataCharacters[i].NameCharacter.Value);
                 }
             }
         }
 
-        public void OnClickCharacterButton(int idButton)
+        public void OnClickCharacterButton(CharacterButton button)
         {
-            dataCharacterView.ShowDataCharacter(dataCharacters[idButton]);
+            if(currentButton != null)
+            {
+                currentButton.DeactivateButton();
+            }
+
+            currentButton = button;
+            currentData = dataCharacters[button.GetIdButton];
+            dataCharacterView.ShowDataCharacter(currentData);
+        }
+
+        public void ChangeData()
+        {
+            currentData.Health.Value++;
         }
     }
 }
