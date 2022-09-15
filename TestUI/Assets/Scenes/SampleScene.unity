@@ -137,11 +137,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4794038243785298174, guid: b91267085045ecf4cb745c3b2aaba4ec, type: 3}
       propertyPath: m_Name
-      value: InitiativeText
+      value: ExpBonusText
       objectReference: {fileID: 0}
     - target: {fileID: 4794038244670338540, guid: b91267085045ecf4cb745c3b2aaba4ec, type: 3}
       propertyPath: m_Name
-      value: InitiativeBlock (1)
+      value: ExpBonusBlock
       objectReference: {fileID: 0}
     - target: {fileID: 4794038244670338541, guid: b91267085045ecf4cb745c3b2aaba4ec, type: 3}
       propertyPath: m_Pivot.x
@@ -229,11 +229,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4794038244909025457, guid: b91267085045ecf4cb745c3b2aaba4ec, type: 3}
       propertyPath: m_text
-      value: Initiative
+      value: Exp Bonus
       objectReference: {fileID: 0}
     - target: {fileID: 4794038244909025459, guid: b91267085045ecf4cb745c3b2aaba4ec, type: 3}
       propertyPath: m_Name
-      value: InitiativeText
+      value: ExpBonusText
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b91267085045ecf4cb745c3b2aaba4ec, type: 3}
@@ -837,8 +837,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1544bac0cc9de264cbbd9b7d55095ba9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthText: {fileID: 0}
-  healthSlider: {fileID: 0}
+  healthText: {fileID: 80724582}
+  healthSlider: {fileID: 1709560253}
+  actionPointsBlock: {fileID: 0}
+  initiativeBlock: {fileID: 0}
   accuracyStrengthText: {fileID: 0}
   accuracyDexterityText: {fileID: 0}
   accuracyMagicText: {fileID: 0}
@@ -2416,11 +2418,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4794038243785298174, guid: b91267085045ecf4cb745c3b2aaba4ec, type: 3}
       propertyPath: m_Name
-      value: ActionPointsText
+      value: CritChanceText
       objectReference: {fileID: 0}
     - target: {fileID: 4794038244670338540, guid: b91267085045ecf4cb745c3b2aaba4ec, type: 3}
       propertyPath: m_Name
-      value: ActionPointsBlock
+      value: CritChanceBlock
       objectReference: {fileID: 0}
     - target: {fileID: 4794038244670338541, guid: b91267085045ecf4cb745c3b2aaba4ec, type: 3}
       propertyPath: m_Pivot.x
@@ -2508,11 +2510,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4794038244909025457, guid: b91267085045ecf4cb745c3b2aaba4ec, type: 3}
       propertyPath: m_text
-      value: Action Points
+      value: Crit Chance
       objectReference: {fileID: 0}
     - target: {fileID: 4794038244909025459, guid: b91267085045ecf4cb745c3b2aaba4ec, type: 3}
       propertyPath: m_Name
-      value: ActionPointsText
+      value: CritChanceText
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b91267085045ecf4cb745c3b2aaba4ec, type: 3}

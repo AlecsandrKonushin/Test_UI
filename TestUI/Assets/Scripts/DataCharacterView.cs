@@ -8,18 +8,21 @@ namespace UI.CharacterWindow
 {
     public class DataCharacterView : MonoBehaviour
     {
-        [Label("Health Parameters")]
+        [BoxGroup("Health Parameters")]
         [SerializeField] private TextMeshProUGUI healthText;
-        [Label("Health Parameters")]
+        [BoxGroup("Health Parameters")]
         [SerializeField] private Slider healthSlider;
 
-        [Label("Cccuracy Parameters")]
+        [BoxGroup("initiative Parameters")]
+        [SerializeField] private BlockParameter actionPointsBlock, initiativeBlock;
+
+        [BoxGroup("Accuracy Parameters")]
         [SerializeField] private BlockParameter accuracyStrengthText, accuracyDexterityText, accuracyMagicText;
 
-        [Label("Damage Parameters")]
+        [BoxGroup("Damage Parameters")]
         [SerializeField] private BlockParameter damageStrengthText, damageDexterityText, damageMagicText;
 
-        [Label("Other Parameters")]
+        [BoxGroup("Other Parameters")]
         [SerializeField] private BlockParameter critChanceText, sprintText, expBonusText, panicResistText;
 
         public void ShowDataCharacter(DataCharacter data)
