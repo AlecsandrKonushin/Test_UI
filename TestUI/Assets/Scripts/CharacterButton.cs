@@ -4,16 +4,29 @@ using UnityEngine.UI;
 
 namespace UI.CharacterWindow
 {
+    [RequireComponent(typeof(Button))]
+    [RequireComponent(typeof(TextMeshProUGUI))]
     public class CharacterButton : MonoBehaviour
     {
-        private CharacterInfoWindow infoWindow;
+        private CharactersInfoWindow infoWindow;
         private int idButton;
         private TextMeshProUGUI characterNameText;
 
-        private void Start()
+        public void Initialize()
         {
-            GetComponent<Button>().onClick.AddListener(OnClickButton);
-            infoWindow = GetComponentInParent<CharacterInfoWindow>();
+            if (TryGetComponent(out CharactersInfoWindow window))
+            {
+                infoWindow = window;
+
+                GetComponent<Button>().onClick.AddListener(OnClickButton);
+            }
+            else
+            {
+                Debug.Log($"<color=red>Not found CharactersInfoWindow in parent!</color>");
+            }
+
+            characterNameText = GetComponentInChildren<TextMeshProUGUI>();
+            GetComponent<Button>().image.color = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f));
         }
 
         public void SetInfo(int id, string characterName)

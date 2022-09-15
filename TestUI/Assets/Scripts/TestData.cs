@@ -13,7 +13,7 @@ namespace Test
 
 			for (int i = 0; i < 10; i++)
 			{
-				Characters.Add(new DataCharacter(i));
+				Characters.Add(new DataCharacter(i + 1));
 			}
 		}
 	}
@@ -60,7 +60,7 @@ namespace Test
 
 		public DataCharacter(int idCharacter)
 		{
-			NameCharacter = "Character" + idCharacter;
+			NameCharacter = $"Character\n{idCharacter}";
 
 			Health = Random.Range(5, 10);
 			MaxHealth = Random.Range(10, 15);
