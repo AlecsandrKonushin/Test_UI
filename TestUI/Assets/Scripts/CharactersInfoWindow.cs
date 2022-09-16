@@ -72,9 +72,42 @@ namespace UI.CharacterWindow
             dataCharacterView.ShowDataCharacter(currentData);
         }
 
-        public void ChangeData()
+        public void ChangeDataCurrentCharacter()
         {
-            currentData.Health.Value++;
+            if (currentData != null)
+            {
+                currentData.Health.Value = Random.Range(0, 10);
+                currentData.MaxHealth.Value = Random.Range(10, 20);
+                currentData.BonusHealth.Value = Random.Range(-10, 10);
+
+                currentData.MovementPoints.Value = Random.Range(5, 10);
+                currentData.BonusMovementPoints.Value = Random.Range(-5, 5);
+                currentData.Initiative.Value = Random.Range(5, 10);
+                currentData.BonusInitiative.Value = Random.Range(-5, 5);                
+                
+                currentData.AccuracyStrength.Value = Random.Range(5, 10);
+                currentData.BonusAccuracyStrength.Value = Random.Range(-5, 5);
+                currentData.AccuracyDexterity.Value = Random.Range(5, 10);
+                currentData.BonusAccuracyDexterity.Value = Random.Range(-5, 5);
+                currentData.AccuracyMagic.Value = Random.Range(5, 10);
+                currentData.BonusAccuracyMagic.Value = Random.Range(-5, 5);
+
+                currentData.DamageStrength.Value = Random.Range(5, 10);
+                currentData.BonusDamageStrength.Value = Random.Range(-5, 5);
+                currentData.DamageDexterity.Value = Random.Range(5, 10);
+                currentData.BonusDamageDexterity.Value = Random.Range(-5, 5);
+                currentData.DamageMagic.Value = Random.Range(5, 10);
+                currentData.BonusDamageMagic.Value = Random.Range(-5, 5);
+
+                currentData.CritChance.Value = Random.Range(5, 10);
+                currentData.BonusCritChance.Value = Random.Range(-5, 5);
+                currentData.Sprint.Value = Random.Range(5, 10);
+                currentData.BonusSprint.Value = Random.Range(-5, 5);
+                currentData.ExpBonus.Value = Random.Range(5, 10);
+                currentData.BonusExpBonus.Value = Random.Range(-5, 5);
+                currentData.PanicResist.Value = Random.Range(5, 10);
+                currentData.BonusPanicResist.Value = Random.Range(-5, 5);
+            }
         }
     }
 }

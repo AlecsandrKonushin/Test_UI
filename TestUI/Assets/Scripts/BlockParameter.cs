@@ -8,7 +8,7 @@ namespace UI.CharacterWindow
         [SerializeField] private TextMeshProUGUI labelText;
         [SerializeField] private TextMeshProUGUI valueText;
 
-        public void SetData(string valueText, string labelText = "")
+        public void SetData(string valueText, Color colorValueText, string labelText = "")
         {
             if (labelText != "")
             {
@@ -16,6 +16,7 @@ namespace UI.CharacterWindow
             }
 
             this.valueText.text = valueText;
+            this.valueText.color = colorValueText;
         }
     }
 }

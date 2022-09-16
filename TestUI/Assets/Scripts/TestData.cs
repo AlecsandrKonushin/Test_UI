@@ -65,21 +65,34 @@ namespace Test
 
             Health = new ReactiveProperty<int>(Random.Range(5, 10));
             MaxHealth = new ReactiveProperty<int>(Random.Range(10, 15));
+            BonusHealth = new ReactiveProperty<int>(Random.Range(-10, 10));
 
             MovementPoints = new ReactiveProperty<int>(Random.Range(5, 10));
+            BonusMovementPoints = new ReactiveProperty<int>(Random.Range(-10, 10));
             Initiative = new ReactiveProperty<int>(Random.Range(0, 10));
+            BonusInitiative = new ReactiveProperty<int>(Random.Range(-10, 10));
 
             AccuracyStrength = new ReactiveProperty<int>(Random.Range(0, 100));
+            BonusAccuracyStrength = new ReactiveProperty<int>(Random.Range(-10, 10));
             AccuracyDexterity = new ReactiveProperty<int>(Random.Range(0, 100));
+            BonusAccuracyDexterity = new ReactiveProperty<int>(Random.Range(-10, 10));
             AccuracyMagic = new ReactiveProperty<int>(Random.Range(0, 100));
+            BonusAccuracyMagic = new ReactiveProperty<int>(Random.Range(-10, 10));
 
             DamageStrength = new ReactiveProperty<int>(Random.Range(0, 100));
+            BonusDamageStrength = new ReactiveProperty<int>(Random.Range(-10, 10));
             DamageDexterity = new ReactiveProperty<int>(Random.Range(0, 100));
+            BonusDamageDexterity = new ReactiveProperty<int>(Random.Range(-10, 10));
             DamageMagic = new ReactiveProperty<int>(Random.Range(0, 100));
+            BonusDamageMagic = new ReactiveProperty<int>(Random.Range(-10, 10));
             CritChance = new ReactiveProperty<int>(Random.Range(0, 25));
+            BonusCritChance = new ReactiveProperty<int>(Random.Range(-10, 10));
             Sprint = new ReactiveProperty<int>(Random.Range(0, 100));
+            BonusSprint = new ReactiveProperty<int>(Random.Range(-10, 10));
             ExpBonus = new ReactiveProperty<int>(Random.Range(0, 50));
+            BonusExpBonus = new ReactiveProperty<int>(Random.Range(-10, 10));
             PanicResist = new ReactiveProperty<int>(Random.Range(0, 5));
+            BonusPanicResist = new ReactiveProperty<int>(Random.Range(-10, 10));
         }
     }
 }

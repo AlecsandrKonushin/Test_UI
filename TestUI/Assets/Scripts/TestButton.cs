@@ -17,7 +17,7 @@ namespace UI.CharacterWindow
 
         private void OnClickTestButton()
         {
-            infoWindow.ChangeData();
+            infoWindow.ChangeDataCurrentCharacter();
         }
     }
 }
